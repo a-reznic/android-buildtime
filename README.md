@@ -1,121 +1,104 @@
-# Firefox Focus for Android
+# AndroidStudioBenchmark (Firefox Focus for Android)
 
-_Browse like no one’s watching. The new Firefox Focus automatically blocks a wide range of online trackers — from the moment you launch it to the second you leave it. Easily erase your history, passwords and cookies, so you won’t get followed by things like unwanted ads._ 
+`AndroidStudioBenchmark` contains a large codebase to measure the compilation time in `Android Studio`.
 
-Firefox Focus provides automatic ad blocking and tracking protection on an easy-to-use private browser.
+You are probably familiar with the following question:
 
-<a href="https://play.google.com/store/apps/details?id=org.mozilla.focus" target="_blank"><img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="90"/></a>
+"Should I buy an i5, i7, or even i9 processor for Android development? How much RAM would be enough? How SSD/M.2/NVMe influence build time?".
 
-* [Google Play: Firefox Focus (Global)](https://play.google.com/store/apps/details?id=org.mozilla.focus)
-* [Google Play: Firefox Klar (Germany, Austria & Switzerland)](https://play.google.com/store/apps/details?id=org.mozilla.klar)
-* [Download APKs](https://github.com/mozilla-mobile/focus-android/releases)
+`AndroidStudioBenchmark` is initially created for my personal youtube channel
+https://www.youtube.com/c/serhiyradkivskyi/about
+to compare the performance of top laptops to choose the best system for `Android development`, because I hate to wait lot
+of time waiting project to be built. And if we are buying laptop for 1000+ USD we want to be sure that it will perform 100% faster than our current machine. But online shops in there most - don't give ability to make real world
+testing on your project to compare results. And most of tech reviewers describe laptops from designers/youtubers point of view,
+not that much information from real software developers.
+
+I believe the results will help developers to make the right cost/performance trade-off decision when choosing their next Mac/PC.
+If you are interested - just continue reading and if you'll find this test useful - it would be very cool if you can share your result
+and subscribe for my channel - it would be cool to have like minded audiance to share some more test on and get feedback on any
+professional stuff.
+
+# Results of Android Studio Performance testing:
+https://buildtime.reznicsoftware.com
+ 
+# Testing steps:
+
+# 1. Install Android Studio:
+https://developer.android.com/studio
+
+I was running test on `Android Studio Koala`, but you can run tests on the latest version (just write the version you have).
+ 
+I have set 4Gb RAM for my android virtual machine.
+
+And please remember your Android SDK location.
+
+# 2. Download API Level 28 SDK for this do next:
+Go to: `Tools -> SDK Manager`
+
+Choose Tab: `SDK Platforms`
+
+Select: `Android 9.0 (Pie) API Level 28` and download it.
+
+Close `Android Studio` after this.
+
+# 3. Install JDK 11:
+https://www.oracle.com/java/technologies/downloads/?er=221886#java11
+
+I have installed: `Java SE Development Kit` (You can also use JDK 11 or 17),
+
+JDK 17 has support for Macbook with M1/MPro chips. It'w better use this if you have such machine, it will give faster results: (https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+
+# 4. Set "JAVA_HOME" path in your Environment variables (System variables):
+For me it was: `JAVA_HOME: C:\Program Files\Java\jdk1.8.0_271`
+
+# 5. Download AndroidStudioBenchmark repository:
+https://github.com/a-reznic/android-buildtime
+
+This is a fork of opensource `Firefox browser for Android` (https://github.com/mozilla-mobile/focus-android).
+
+This is quite a big project (after all gradle modules downloaded it weights 6+Gb).
+
+You can download it as zip file to you fast SSD location.
+
+Unzip it.
+
+# 6. Restart you system.
+Then make sure that no other programs/antivirus/browsers/big massive custom processes running.
+
+Make sure that system is quite idle.
+
+# 7. Open Android Studio.
+Go to `File -> Open`: select Firefox Focus for Android project from your location and open it.
+
+`Wait while all gradle files will be synced`, it can take up to 5-10 minutes.
+
+# 8. Run next command to test speed of your machine doing next work:
+Go to: `View -> Tools Windows -> Terminal`
+
+Type command and press enter:
 
 
-
-## Getting Involved
-
-
-We encourage you to participate in this open source project. We love Pull Requests, Bug Reports, ideas, (security) code reviews or any other kind of positive contribution. 
-
-Before you attempt to make a contribution please read the [Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/).
-
-* [Guide to Contributing](https://github.com/mozilla-mobile/shared-docs/blob/main/android/CONTRIBUTING.md) (**New contributors start here!**)
-
-* [View current Issues](https://github.com/mozilla-mobile/focus-android/issues), [view current Pull Requests](https://github.com/mozilla-mobile/focus-android/pulls), or [file a security issue][sec issue].
-
-* Opt-in to our Mailing List [firefox-focus-public@](https://mail.mozilla.org/listinfo/firefox-focus-public) to keep up to date.
-
-* [View the Wiki](https://github.com/mozilla-mobile/focus-android/wiki).
-
-**Beginners!** - Watch out for [Issues with the "Good First Issue" label](https://github.com/mozilla-mobile/focus-android/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22). These are easy bugs that have been left for first timers to have a go, get involved and make a positive contribution to the project!
-
-## Build Instructions
-
-
-1. Clone or Download the repository:
-
+Windows:
   ```shell
-  git clone https://github.com/mozilla-mobile/focus-android
+  gradlew clean assembleDebug
   ```
 
-2. Import the project into Android Studio **or** build on the command line:
-
+MacOS/Linux:
   ```shell
-  ./gradlew clean app:assembleFocusDebug
+  ./gradlew clean assembleDebug
   ```
 
-3. Make sure to select the correct build variant in Android Studio:
-**focusArmDebug** for ARM
-**focusX86Debug** for X86
-**focusAarch64Debug** for ARM64
+Wait for assembling to complete. Run it 3 times in a row.
 
-## local.properties helpers
-You can speed up or enhance local development by setting a few helper flags available in `local.properties` which will be made easily available as gradle properties.
+First time it will be your fresh build and it will take a little longer. Two next builds will be normal one.
 
-### Automatically sign release builds
-To sign your release builds with your debug key automatically, add the following to `<proj-root>/local.properties`:
+After each build completes make a screenshot and save time result.
 
-```sh
-autosignReleaseWithDebugKey
-```
+While system assembling watch for you `Task Manager` how `CPU` is processing, how much `RAM` is used,
+it would be cool if you can watch CPU temperature with some tool like `AIDA`: https://www.aida64.com/downloads
 
-With this line, release build variants will automatically be signed with your debug key (like debug builds), allowing them to be built and installed directly through Android Studio or the command line.
+# All results will be sent to the server 
+You can see results of all tests here: https://buildtime.reznicsoftware.com
 
-This is helpful when you're building release variants frequently, for example to test feature flags and or do performance analyses.
+You Device result: https://buildtime.reznicsoftware.com/device/{your device id} - response from
 
-### Building debuggable release variants
-
-Nightly, Beta and Release variants are getting published to Google Play and therefore are not debuggable. To locally create debuggable builds of those variants, add the following to `<proj-root>/local.properties`:
-
-```sh
-debuggable
-```
-
-### Auto-publication workflow for android-components and application-services
-If you're making changes to these projects and want to test them in Focus, auto-publication workflow is the fastest, most reliable
-way to do that.
-
-In `local.properties`, specify a relative path to your local `android-components` and/or `application-services` projects. E.g.:
-- `autoPublish.android-components.dir=../firefox-android/android-components`
-- `autoPublish.application-services.dir=../application-services`
-
-*Note that the Android Components project was already migrated to the new [firefox-android](https://github.com/mozilla-mobile/firefox-android) repository. Therefore, this auto publication workflow won't be neccessary for Android Components once Focus is integrated in the new repository as well.*
-
-Once these flags are set, your Focus builds will include any local modifications present in these projects.
-
-See a [demo of auto-publication workflow in action](https://www.youtube.com/watch?v=qZKlBzVvQGc).
-
-## Pre-push hooks
-To reduce review turn-around time, we'd like all pushes to run tests locally. We'd
-recommend you use our provided pre-push hook in `quality/pre-push-recommended.sh`.
-Using this hook will guarantee your hook gets updated as the repository changes.
-This hook tries to run as much as possible without taking too much time.
-
-To add it, run this command from the project root:
-```sh
-ln -s ../../quality/pre-push-recommended.sh .git/hooks/pre-push
-```
-
-To push without running the pre-push hook (e.g. doc updates):
-```sh
-git push <remote> --no-verify
-```
-
-## Test Channel on Google PlayStore
-To get Focus Nightly on your device, follow these steps:
-
-1) Visit https://groups.google.com/g/firefox-focus-pre-release and join the Google Group
-2) After you have joined the group opt-in to receive Nightly builds, again with the same Google account: https://play.google.com/apps/testing/org.mozilla.focus.nightly
-3) Download Firefox Focus (Nightly) from Google Play: https://play.google.com/store/apps/details?id=org.mozilla.focus.nightly
-
-Make sure you use the same Google Account for both steps.
-
-
-## License
-
-
-    This Source Code Form is subject to the terms of the Mozilla Public
-    License, v. 2.0. If a copy of the MPL was not distributed with this
-    file, You can obtain one at http://mozilla.org/MPL/2.0/
-
-[sec issue]: https://bugzilla.mozilla.org/enter_bug.cgi?assigned_to=nobody%40mozilla.org&bug_file_loc=http%3A%2F%2F&bug_ignored=0&bug_severity=normal&bug_status=NEW&cf_fx_iteration=---&cf_fx_points=---&component=Security%3A%20Android&contenttypemethod=autodetect&contenttypeselection=text%2Fplain&defined_groups=1&flag_type-4=X&flag_type-607=X&flag_type-791=X&flag_type-800=X&flag_type-803=X&form_name=enter_bug&groups=firefox-core-security&maketemplate=Remember%20values%20as%20bookmarkable%20template&op_sys=Unspecified&priority=--&product=Focus&rep_platform=Unspecified&target_milestone=---&version=---
