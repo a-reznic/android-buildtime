@@ -41,17 +41,17 @@ Select: `Android 9.0 (Pie) API Level 28` and download it.
 
 Close `Android Studio` after this.
 
-# 3. Install JDK 11:
-https://www.oracle.com/java/technologies/downloads/?er=221886#java11
+# 3. Install JDK 17:
+https://www.oracle.com/java/technologies/downloads/?er=221886#java17
 
 I have installed: `Java SE Development Kit` (You can also use JDK 11 or 17),
 
 JDK 17 has support for Macbook with M1/MPro chips. It'w better use this if you have such machine, it will give faster results: (https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 
 # 4. Set "JAVA_HOME" path in your Environment variables (System variables):
-For me it was: `JAVA_HOME: C:\Program Files\Java\jdk1.8.0_271`
+Doc https://www.baeldung.com/java-home-on-windows-mac-os-x-linux
 
-# 5. Download AndroidStudioBenchmark repository:
+# 5. Download android-buildtime repository:
 https://github.com/a-reznic/android-buildtime
 
 This is a fork of opensource `Firefox browser for Android` (https://github.com/mozilla-mobile/focus-android).
@@ -80,15 +80,15 @@ Type command and press enter:
 
 Windows:
   ```shell
-  gradlew clean assembleDebug
+  gradlew clean assemble 
   ```
 
 MacOS/Linux:
   ```shell
-  ./gradlew clean assembleDebug
+  ./gradlew clean assemble 
   ```
 
-Wait for assembling to complete. Run it 3 times in a row.
+Wait for assembling to complete. Run it 4 times in a row.
 
 First time it will be your fresh build and it will take a little longer. Two next builds will be normal one.
 
@@ -100,5 +100,5 @@ it would be cool if you can watch CPU temperature with some tool like `AIDA`: ht
 # All results will be sent to the server 
 You can see results of all tests here: https://buildtime.reznicsoftware.com
 
-You Device result: https://buildtime.reznicsoftware.com/device/{your device id} - response from
+You Device result: https://buildtime.reznicsoftware.com/device/{device_id} - response from server
 
