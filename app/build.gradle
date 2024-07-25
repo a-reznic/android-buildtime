@@ -163,13 +163,6 @@ android {
     }
 }
 
-buildTimeOptions {
-    sendData = true
-    info {
-        androidStudioVersion = "Put you Android Studio version here"
-    }
-}
-
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
     kotlinOptions {
         allWarningsAsErrors = true
@@ -681,3 +674,13 @@ tasks.register('printVariants') {
 
 // Enable expiration by major version.
 ext.gleanExpireByVersion = 1
+
+// PLS Add Your device name and Android Studio version
+buildTimeOptions {
+    sendData = true
+
+    info {
+        deviceName = "PC"
+        androidStudioVersion = "Replace with your Android Studio version"
+    }
+}
