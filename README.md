@@ -23,6 +23,16 @@ https://buildtime.reznicsoftware.com
  
 # Testing steps:
 
+please modify(end of app/build.gradle file) the block - change deviceName and androidStudioVersion to your real values:
+```groovy
+buildTimeOptions {
+    info {
+        deviceName = "YOU PC NAME"
+        androidStudioVersion = "Replace with your Android Studio version"
+    }
+}
+```
+
 # 1. Install Android Studio:
 https://developer.android.com/studio
 
@@ -75,8 +85,17 @@ Go to `File -> Open`: select Firefox Focus for Android project from your locatio
 # 8. Run next command to test speed of your machine doing next work:
 Go to: `View -> Tools Windows -> Terminal`
 
-Type command and press enter:
+please modify(end of app/build.gradle file) the block - change deviceName and androidStudioVersion to your real values:
+```groovy
+buildTimeOptions {
+    info {
+        deviceName = "YOU PC NAME"
+        androidStudioVersion = "Replace with your Android Studio version"
+    }
+}
+```
 
+Type command and press enter:
 
 Windows:
   ```shell
