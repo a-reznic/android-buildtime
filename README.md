@@ -24,14 +24,24 @@ https://buildtime.reznicsoftware.com
 # Testing steps:
 
 please modify(end of app/build.gradle file) the block - change deviceName and androidStudioVersion to your real values:
+EXAMPLE: androidStudioVersion = Just copy and paste from Android Studio `Help -> About` dialog:
+
 ```groovy
 buildTimeOptions {
     info {
-        deviceName = "YOU PC NAME"
-        androidStudioVersion = "Replace with your Android Studio version"
+        deviceName = "Custom PC"
+        androidStudioVersion = "Android Studio Koala | 2024.1.1 Patch 1\n" +
+                "Build #AI-241.18034.62.2411.12071903, built on July 11, 2024\n" +
+                "Runtime version: 17.0.11+0--11852314 amd64\n" +
+                "VM: OpenJDK 64-Bit Server VM by JetBrains s.r.o.\n" +
+                "Windows 11.0\n" +
+                "GC: G1 Young Generation, G1 Old Generation\n" +
+                "Memory: 4096M\n" +
+                "Cores: 32"
     }
 }
 ```
+
 
 # 1. Install Android Studio:
 https://developer.android.com/studio
@@ -86,11 +96,20 @@ Go to `File -> Open`: select Firefox Focus for Android project from your locatio
 Go to: `View -> Tools Windows -> Terminal`
 
 please modify(end of app/build.gradle file) the block - change deviceName and androidStudioVersion to your real values:
+EXAMPLE: androidStudioVersion = Just copy and paste from Android Studio `Help -> About` dialog:
+
 ```groovy
 buildTimeOptions {
     info {
-        deviceName = "YOU PC NAME"
-        androidStudioVersion = "Replace with your Android Studio version"
+        deviceName = "Custom PC"
+        androidStudioVersion = "Android Studio Koala | 2024.1.1 Patch 1\n" +
+                "Build #AI-241.18034.62.2411.12071903, built on July 11, 2024\n" +
+                "Runtime version: 17.0.11+0--11852314 amd64\n" +
+                "VM: OpenJDK 64-Bit Server VM by JetBrains s.r.o.\n" +
+                "Windows 11.0\n" +
+                "GC: G1 Young Generation, G1 Old Generation\n" +
+                "Memory: 4096M\n" +
+                "Cores: 32"
     }
 }
 ```
