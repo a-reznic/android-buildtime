@@ -99,12 +99,12 @@ Type command and press enter:
 
 Windows:
   ```shell
-  gradlew clean assemble 
+  gradlew clean assemble
   ```
 
 MacOS/Linux:
   ```shell
-  ./gradlew clean assemble 
+  ./gradlew clean assemble
   ```
 
 Wait for assembling to complete. Run it 4 times in a row.
