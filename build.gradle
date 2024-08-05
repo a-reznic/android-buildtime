@@ -4,7 +4,7 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-//        mavenLocal()
+        mavenLocal()
         maven {
             // We will always need this repository for retrieving stable dependencies (like Glean).
             url "https://maven.mozilla.org/maven2"
@@ -19,7 +19,7 @@ buildscript {
         classpath FocusDependencies.kotlin_gradle_plugin
         classpath "org.mozilla.components:tooling-glean-gradle:${AndroidComponents.VERSION}"
         classpath "org.mozilla.components:tooling-nimbus-gradle:${AndroidComponents.VERSION}"
-        classpath "com.reznicsoftware.buildtime:test-plugin:0.1.5"
+        classpath "com.reznicsoftware.buildtime:test-plugin:0.2.0"
     }
 }
 
