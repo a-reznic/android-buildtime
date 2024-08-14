@@ -21,6 +21,8 @@ professional stuff.
 # Results of Android Studio Performance testing:
 https://buildtime.reznicsoftware.com
  
+Source Code of the plugin: https://github.com/a-reznic/buildtime-plugin 
+
 # Testing steps:
 
 please modify(end of app/build.gradle file) the block - change deviceName and androidStudioVersion to your real values:
