@@ -102,6 +102,7 @@ EXAMPLE: androidStudioVersion = Just copy and paste from Android Studio `Help ->
 
 ```groovy
 buildTimeOptions {
+    email = ""
     info {
         deviceName = "Custom PC"
         androidStudioVersion = "Android Studio Koala | 2024.1.1 Patch 1\n" +

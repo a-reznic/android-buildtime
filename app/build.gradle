@@ -12,6 +12,16 @@ apply from: "$project.rootDir/tools/gradle/versionCode.gradle"
 import com.android.build.OutputFile
 import groovy.json.JsonOutput
 
+// PLS Add Your device name, email and Android Studio version
+buildTimeOptions {
+    sendData = true
+    email = "" //no spam, only for contact if needed
+    info {
+        deviceName = "PC"
+        androidStudioVersion = "Replace with your Android Studio version"
+    }
+}
+
 android {
     compileSdkVersion 33
 
@@ -674,13 +684,3 @@ tasks.register('printVariants') {
 
 // Enable expiration by major version.
 ext.gleanExpireByVersion = 1
-
-// PLS Add Your device name and Android Studio version
-buildTimeOptions {
-    sendData = true
-
-    info {
-        deviceName = "PC"
-        androidStudioVersion = "Replace with your Android Studio version"
-    }
-}
