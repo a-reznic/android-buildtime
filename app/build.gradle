@@ -24,6 +24,7 @@ buildTimeOptions {
 
 android {
     compileSdkVersion 33
+    buildToolsVersion "33.0.0"
 
     if (project.hasProperty("testBuildType")) {
         // Allowing to configure the test build type via command line flag (./gradlew -PtestBuildType=beta ..)
